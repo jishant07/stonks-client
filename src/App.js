@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {BrowserRouter, Switch,Route} from 'react-router-dom';
-import ReactNotification from 'react-notification-component';
 
 import Login from "./components/login";
 import Signup from './components/signup';
