@@ -12,7 +12,6 @@ class App extends Component {
   render() { 
     return ( 
     <BrowserRouter>
-      <ReactNotification/>
       <Switch>
         <Route exact path="/" component={Login} />
         <Route exact path="/signup" component={Signup}/>
