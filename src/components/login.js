@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DataProvider from '../services/data';
 import axios from 'axios';
+import {withRouter} from 'react-router-dom'
 
 class Login extends Component {
     state = { email:"",password:"" }
@@ -19,7 +20,8 @@ class Login extends Component {
                     maxAge: 2 * 60 * 60,
                   });
                 alert(res.data.msg)
-                this.props.history.push("/dashboard")
+                console.log(this.props)
+                this.props.history.push("/Market")
             }
             else if(res.data.status === "fail"){
                 this.setState({email:"",password:""})
@@ -47,4 +49,4 @@ class Login extends Component {
     }
 }
  
-export default Login;
+export default withRouter(Login);

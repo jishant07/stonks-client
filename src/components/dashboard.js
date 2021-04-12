@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import auth from '../services/auth';
+import {withRouter} from 'react-router-dom'
+
 
 class DashBoard extends Component {
     state = { loggedIn : true }
@@ -11,4 +13,4 @@ class DashBoard extends Component {
     }
 }
  
-export default DashBoard;
+export default withRouter( DashBoard);

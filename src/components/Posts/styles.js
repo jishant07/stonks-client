@@ -9,12 +9,6 @@ export default makeStyles((theme) => ({
       marginLeft: '1px'
      
     },
-    tabs: {
-      borderRight: `1px solid ${theme.palette.divider}`,
-      marginTop:'60px',
-      marginLeft:'0px',
-      display: 'inline-block',
-
-    },
+    
   }
     ));

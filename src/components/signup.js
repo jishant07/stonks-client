@@ -23,7 +23,7 @@ class SignUp extends Component {
                     path: "/",
                     maxAge: 2 * 60 * 60,
                   });
-                this.props.history.push("/dashboard")
+                this.props.history.push("/")
             }
             else{
                 alert(response.data.msg)
