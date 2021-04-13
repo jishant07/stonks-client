@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import DataProvider from '../services/data';
+import DataProvider from '../../services/data';
 import axios from 'axios';
 import {withRouter} from 'react-router-dom'
+import useStyles from './style';
+import { Paper } from '@material-ui/core';
+
 
 class Login extends Component {
     state = { email:"",password:"" }
@@ -38,13 +41,13 @@ class Login extends Component {
 
     render() { 
         return ( 
-            <div>
+            <PaperclassName={classes.root} elevation={0}>
                 <form onSubmit={this.handleSubmit}>
                     <input type="email" placeholder="Enter email" name="email" required onChange={this.handleChange}></input>
                     <input type="password" placeholder="Enter Password" name="password" required onChange={this.handleChange}></input>
                     <button>Submit</button>
                 </form>
-            </div>
+            </Paper>
         );
     }
 }
