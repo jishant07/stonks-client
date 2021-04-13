@@ -41,7 +41,7 @@ class Login extends Component {
 
     render() { 
         return ( 
-            <PaperclassName={classes.root} elevation={0}>
+            <Paper className={classes.root} elevation={0}>
                 <form onSubmit={this.handleSubmit}>
                     <input type="email" placeholder="Enter email" name="email" required onChange={this.handleChange}></input>
                     <input type="password" placeholder="Enter Password" name="password" required onChange={this.handleChange}></input>
