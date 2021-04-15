@@ -10,12 +10,11 @@ const Home = () => {
   const bgStyle={
     backgroundColor: '#6366F1' ,
     margin: '0' ,
-    width: '100%',
+    width: '100vw',
     height: '100vh'
   }
 
   return (
-    <Grow in>
       <Container style={bgStyle} maxWidth="xl">
         <Grid container justify="space-between" alignSelf="stretch" spacing={3} textAlign="center">
           <Grid item xs={12} sm={7}>
@@ -23,12 +22,10 @@ const Home = () => {
           </Grid>
           <Grid item xs={12} sm={5}>
             <Login/>
-            <Button component={Link} to="/signup" variant="text" color="primary">Signup</Button>
           </Grid>
           
         </Grid>
       </Container>
-    </Grow>
   );
 };
 

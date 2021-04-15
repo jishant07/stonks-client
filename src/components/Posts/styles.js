@@ -8,8 +8,9 @@ export default makeStyles((theme) => ({
       backgroundColor: '#6366F1' ,
       display: 'flex-vertical',
       padding: '20px',
-      marginTop: 'auto',
-      marginBottom: 'auto'
+      marginTop: '20px',
+      marginBottom: 'auto',
+      marginLeft: '80px'
     },
 
     logo: {
