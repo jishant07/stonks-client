@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 
-function Extra() {
+function PieSentiments() {
 
     const [positiveAverage, setPositiveAverage] = useState(null);
     const [negativeAverage, setNegativeAverage] = useState(null);
@@ -46,8 +46,9 @@ function Extra() {
     return (
 
         <div >
-            {/* Total percent for company: {JSON.stringify(totalPositive|| '')} */}
-            <h1>Check</h1>
+            <h6>Positive: {JSON.stringify(positiveAverage|| '' )}</h6>
+            <h6>Negative: {JSON.stringify(negativeAverage|| '' )}</h6>
+            <h6>Neutral: {JSON.stringify(neutralAverage|| '' )}</h6>
             {negativeAverage && positiveAverage && neutralAverage && <PieChart width={1000} height={400}>
 
 <Pie
@@ -70,4 +71,4 @@ function Extra() {
     );
 }
 
-export default Extra;
+export default PieSentiments;

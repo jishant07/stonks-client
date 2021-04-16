@@ -22,7 +22,7 @@ class News extends Component {
                <h1>Check</h1>
                {this.state.data.map(item=>{
                    return <div>
-                       {item.content}
+                       {item.title}
                    </div>
                })}
            </div>

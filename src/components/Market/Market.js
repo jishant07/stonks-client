@@ -1,13 +1,16 @@
 import React from 'react';
 import Dashboard from '../dashboard';
 import PropTypes from 'prop-types';
-import {Tabs, Tab, Typography, Box,Icon} from '@material-ui/core';
+import {Tabs, Tab, Typography, Box,Icon, Container} from '@material-ui/core';
 import BusinessIcon from '@material-ui/icons/Business';
 import CropSquareRoundedIcon from '@material-ui/icons/CropSquareRounded';
 import PersonOutlineIcon  from '@material-ui/icons/PersonOutline';
 import PlaylistAddOutlinedIcon  from '@material-ui/icons/PlaylistAddOutlined';
 import TimelineIcon from '@material-ui/icons/Timeline';
 import useStyles from './styles';
+import Stonks from '../../images/Stonks.svg';
+import PieSentiments from '../pie';
+import News from '../news'
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -56,11 +59,11 @@ const Market = () => {
   return (
     
     <>
-    <div>
-    <Icon><CropSquareRoundedIcon/></Icon>
-    <Typography variant="h3">Stonks</Typography>
-    </div>
-    <div className={classes.root}>
+    <Container maxWidth='xl' className={classes.mainContainer}>
+    <img src={Stonks} alt="logo" className={classes.logo} />
+
+
+    <Container maxWidth='xl' className={classes.root}>
       <Tabs
         orientation="vertical"
         variant="scrollable"
@@ -75,15 +78,34 @@ const Market = () => {
         <Tab icon={<BusinessIcon />} label="All Companies" {...a11yProps(1)} />
         <Tab icon={<PlaylistAddOutlinedIcon />} label="WatchList" {...a11yProps(2)} />
         <Tab icon={<PersonOutlineIcon  />} label="Accounts" {...a11yProps(3)} />
-        <Tab label="About" {...a11yProps(4)} />
-        <Tab label="Team" {...a11yProps(5)} />
-        <Tab label="Connect" {...a11yProps(6)} />
+        <Tab label="About" {...a11yProps(4)} className={classes.sepTabs} />
         <Tab label="Logout" {...a11yProps(7)} />
       </Tabs>
 
      
       <TabPanel value={value} index={0}>
-       Item 1
+       <PieSentiments/>
+       <News/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two
@@ -107,10 +129,11 @@ const Market = () => {
         < Dashboard />
       </TabPanel>
 
-    </div>
+    </Container>
+    </Container>
     </>
 
-    
+   
   );
 };
 
