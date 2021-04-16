@@ -32,12 +32,35 @@ export default makeStyles((theme) => ({
       marginLeft:'0px',
       display: 'inline-block',
       color: '#fff',
+      fontFamily: 'Inter'
       
 
     },
 
     sepTabs: {
       marginTop: '80px'
+    },
+
+    sectionTitle: {
+      display: 'flex',
+      height: '48px',
+      marginRight: '8px',
+      color: '#fff',
+      alignItems: 'center',
+      fontSize: '32px',
+      fontFamily: 'Inter',
+      fontWeight: '600',
+    },
+
+    sectionSubTitle: {
+      color: '#ffffff',
+      marginTop: '32px',
+      marginBottom: '16px'
     }
+
+
+
+
   }
     ));
+    

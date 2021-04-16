@@ -1,7 +1,7 @@
 import React from 'react';
 import Dashboard from '../dashboard';
 import PropTypes from 'prop-types';
-import {Tabs, Tab, Typography, Box,Icon, Container} from '@material-ui/core';
+import {Tabs, Tab, Typography, Box,Icon, Container, Grid} from '@material-ui/core';
 import BusinessIcon from '@material-ui/icons/Business';
 import CropSquareRoundedIcon from '@material-ui/icons/CropSquareRounded';
 import PersonOutlineIcon  from '@material-ui/icons/PersonOutline';
@@ -9,6 +9,7 @@ import PlaylistAddOutlinedIcon  from '@material-ui/icons/PlaylistAddOutlined';
 import TimelineIcon from '@material-ui/icons/Timeline';
 import useStyles from './styles';
 import Stonks from '../../images/Stonks.svg';
+import MarketIcon from '../../images/MarketIcon.svg';
 import PieSentiments from '../pie';
 import News from '../news'
 
@@ -56,6 +57,8 @@ const Market = () => {
         setValue(newValue);
     };
 
+  
+
   return (
     
     <>
@@ -84,8 +87,19 @@ const Market = () => {
 
      
       <TabPanel value={value} index={0}>
-       <PieSentiments/>
-       <News/>
+      
+        <div direction="row" className={classes.sectionTitle}>
+          <img src={MarketIcon} alt="logo" className={classes.sectionTitle} />
+          <Typography className={classes.sectionTitle}>Market Overview</Typography>
+        </div>
+
+        <div className={classes.sectionSubTitle}>
+          <Typography variant="h5" >Todays Sentiments</Typography>
+          <Typography variant="subtitle1">As of {new Date().toLocaleString('default', { month: 'long',day: '2-digit',year: 'numeric' }) + ''}</Typography>
+        </div>
+
+        {/* <PieSentiments /> */}
+        <News />
 
 
 

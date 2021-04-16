@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Loader from 'react-loader'
+import { Container, Typography, List } from '@material-ui/core';
 
 class News extends Component {
     state = { data:[] ,loaded:false }
@@ -16,16 +17,38 @@ class News extends Component {
         })
     }
     render() {
+
+        const containerStyle={
+            background: '#2A3752',
+            padding: '16px',
+            borderRadius: '4px',
+            color: '#ffffff',
+            maxHeight: '360px',
+            overflow: 'auto',
+            width: '560px'
+        }
+
+        const headingStyle={
+            fontFamily: 'Inter',
+            fontWeight: '600',
+            fontSize: '16px',
+            lineHeight: '20px',
+            opacity: '0.5',
+            marginBottom: '16px'
+        }
+
+
+
         
         return (
-           <div>
-               <h1>Check</h1>
+           <Container style={containerStyle}>
+               <Typography variant="h6" style={headingStyle} >Sources</Typography>
                {this.state.data.map(item=>{
-                   return <div>
+                   return <List>
                        {item.title}
-                   </div>
+                   </List>
                })}
-           </div>
+           </Container>
         
             );
     }
