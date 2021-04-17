@@ -55,8 +55,14 @@ export default makeStyles((theme) => ({
     sectionSubTitle: {
       color: '#ffffff',
       marginTop: '32px',
-      marginBottom: '16px'
+      marginBottom: '32px'
+    },
+
+    itemContainer: {
+      display: 'flex',
+      padding: '0px',
     }
+  
 
 
 

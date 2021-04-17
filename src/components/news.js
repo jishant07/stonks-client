@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Loader from 'react-loader'
-import { Container, Typography, List } from '@material-ui/core';
+import { Container, Typography, List, Divider } from '@material-ui/core';
 
 class News extends Component {
     state = { data:[] ,loaded:false }
@@ -23,9 +23,9 @@ class News extends Component {
             padding: '16px',
             borderRadius: '4px',
             color: '#ffffff',
-            maxHeight: '360px',
+            height: '360px',
             overflow: 'auto',
-            width: '560px'
+            width: '640px'
         }
 
         const headingStyle={
@@ -33,8 +33,13 @@ class News extends Component {
             fontWeight: '600',
             fontSize: '16px',
             lineHeight: '20px',
-            opacity: '0.5',
+            opacity: '0.75',
             marginBottom: '16px'
+        }
+
+        const dividerStyle={
+            background: '#546DA3',
+            marginTop: '8px'
         }
 
 
@@ -46,6 +51,7 @@ class News extends Component {
                {this.state.data.map(item=>{
                    return <List>
                        {item.title}
+                       <Divider  light style={dividerStyle} />
                    </List>
                })}
            </Container>

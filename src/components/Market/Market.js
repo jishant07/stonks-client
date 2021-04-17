@@ -97,9 +97,12 @@ const Market = () => {
           <Typography variant="h5" >Todays Sentiments</Typography>
           <Typography variant="subtitle1">As of {new Date().toLocaleString('default', { month: 'long',day: '2-digit',year: 'numeric' }) + ''}</Typography>
         </div>
+        <Container className={classes.itemContainer}>
 
-        {/* <PieSentiments /> */}
-        <News />
+          <PieSentiments/>
+          <News/>
+  
+        </Container>
 
 
 
