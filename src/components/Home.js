@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import { Container, Grow, Grid,Button} from '@material-ui/core';
 import Login from "./login";

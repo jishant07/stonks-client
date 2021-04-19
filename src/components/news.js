@@ -18,14 +18,17 @@ class News extends Component {
     render() {
         
         return (
+            <Loader loaded={this.state.loaded}> 
            <div>
                <h1>Check</h1>
                {this.state.data.map(item=>{
                    return <div>
-                       {item.content}
+                       {item.title}
                    </div>
                })}
            </div>
+           </Loader>
+          
         
             );
     }

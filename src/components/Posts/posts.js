@@ -13,7 +13,8 @@ const Posts = () => {
 
   return (
     
-    <Paper className={classes.root}>
+    
+    <Container >
     <h1>Stonks</h1>
     <img src={memories} alt="icon" height="300" />
     <Typography variant="h4">
@@ -26,7 +27,7 @@ const Posts = () => {
     <Button component={Link} to="/connect" variant="text" color="primary">Connect</Button>
     
 
-    </Paper>
+    </Container>
     
   );
 };

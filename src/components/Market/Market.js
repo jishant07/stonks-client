@@ -9,6 +9,10 @@ import PlaylistAddOutlinedIcon  from '@material-ui/icons/PlaylistAddOutlined';
 import TimelineIcon from '@material-ui/icons/Timeline';
 import useStyles from './styles';
 
+import PieSentiments from '../pie';
+import News from '../news';
+import Extra from '../extra';
+
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
   
@@ -83,10 +87,13 @@ const Market = () => {
 
      
       <TabPanel value={value} index={0}>
-       Item 1
+      <Typography variant="h3">Todays Sentiments</Typography>
+      <Typography variant="h4">As of {new Date().toLocaleString('default', { month: 'long',day: '2-digit',year: 'numeric' }) + ''}</Typography>
+       <PieSentiments />
+       <News />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <Extra />
       </TabPanel>
       <TabPanel value={value} index={2}>
         Item Three

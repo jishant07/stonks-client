@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Tooltip } from 'recharts';
+import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 
-function Extra() {
+function PieSentiments() {
 
     const [positiveAverage, setPositiveAverage] = useState(null);
     const [negativeAverage, setNegativeAverage] = useState(null);
@@ -29,8 +29,8 @@ function Extra() {
                     })
                 })
 
-                const positiveAverage = (positiveTotal / numberOfItems)* 100;
-                const negativeAverage = (negativeTotal / numberOfItems)* 100;
+                const positiveAverage =(positiveTotal / numberOfItems);
+                const negativeAverage =(negativeTotal / numberOfItems);
                 const neutralAverage = (neutralTotal / numberOfItems);
                 console.log(positiveAverage, negativeAverage, neutralAverage);
                 setPositiveAverage(positiveAverage);
@@ -46,22 +46,24 @@ function Extra() {
     return (
 
         <div >
-            {/* Total percent for company: {JSON.stringify(totalPositive|| '')} */}
-            <h1>Check</h1>
-            {negativeAverage && positiveAverage && neutralAverage && <PieChart width={1000} height={400}>
+            
+            <h6>Positive: {JSON.stringify(positiveAverage|| '')}</h6>
+            <h6>Negative: {JSON.stringify(negativeAverage|| '')}</h6>
+            <h6>Neutral: {JSON.stringify(neutralAverage|| '')}</h6>
+            { negativeAverage && positiveAverage && neutralAverage && <PieChart width={1000} height={400}>
 
 <Pie
     dataKey="value"
-    data={[{ name: "Positive", value: positiveAverage , fill:"#00ff00" }, { name: "Negative", value: negativeAverage }, {name: "Neutral", value: neutralAverage}]}
+    data={[{ name: "Positive", value: positiveAverage }, { name: "Negative", value: negativeAverage }, {name: "Neutral", value: neutralAverage}]}
     cx={500}
     cy={200}
     innerRadius={40}
     outerRadius={80}
     fill="#82ca9d"
 >
-<Cell stroke={"#0000ff"} fill={"#0000ff"}  strokeWidth={1}/>
-<Cell stroke={"#ff0000"} fill={"#ff0000"}  strokeWidth={1}/>
 <Cell stroke={"#00ff00"} fill={"#00ff00"}  strokeWidth={1}/>
+<Cell stroke={"#ff0000"} fill={"#ff0000"}  strokeWidth={1}/>
+<Cell stroke={"#0000ff"} fill={"#0000ff"}  strokeWidth={1}/>
 </Pie>
 <Tooltip />
 </PieChart>}
@@ -70,4 +72,4 @@ function Extra() {
     );
 }
 
-export default Extra;
+export default PieSentiments;
