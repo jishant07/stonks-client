@@ -1,13 +1,17 @@
 import React from 'react';
 import Dashboard from '../dashboard';
 import PropTypes from 'prop-types';
-import {Tabs, Tab, Typography, Box,Icon} from '@material-ui/core';
+import {Tabs, Tab, Typography, Box,Icon, Container, Grid} from '@material-ui/core';
 import BusinessIcon from '@material-ui/icons/Business';
 import CropSquareRoundedIcon from '@material-ui/icons/CropSquareRounded';
 import PersonOutlineIcon  from '@material-ui/icons/PersonOutline';
 import PlaylistAddOutlinedIcon  from '@material-ui/icons/PlaylistAddOutlined';
 import TimelineIcon from '@material-ui/icons/Timeline';
 import useStyles from './styles';
+import Stonks from '../../images/Stonks.svg';
+import MarketIcon from '../../images/MarketIcon.svg';
+import PieSentiments from '../pie';
+import News from '../news'
 
 import PieSentiments from '../pie';
 import News from '../news';
@@ -57,14 +61,16 @@ const Market = () => {
         setValue(newValue);
     };
 
+  
+
   return (
     
     <>
-    <div>
-    <Icon><CropSquareRoundedIcon/></Icon>
-    <Typography variant="h3">Stonks</Typography>
-    </div>
-    <div className={classes.root}>
+    <Container maxWidth='xl' className={classes.mainContainer}>
+    <img src={Stonks} alt="logo" className={classes.logo} />
+
+
+    <Container maxWidth='xl' className={classes.root}>
       <Tabs
         orientation="vertical"
         variant="scrollable"
@@ -79,18 +85,28 @@ const Market = () => {
         <Tab icon={<BusinessIcon />} label="All Companies" {...a11yProps(1)} />
         <Tab icon={<PlaylistAddOutlinedIcon />} label="WatchList" {...a11yProps(2)} />
         <Tab icon={<PersonOutlineIcon  />} label="Accounts" {...a11yProps(3)} />
-        <Tab label="About" {...a11yProps(4)} />
-        <Tab label="Team" {...a11yProps(5)} />
-        <Tab label="Connect" {...a11yProps(6)} />
+        <Tab label="About" {...a11yProps(4)} className={classes.sepTabs} />
         <Tab label="Logout" {...a11yProps(7)} />
       </Tabs>
 
      
       <TabPanel value={value} index={0}>
-      <Typography variant="h3">Todays Sentiments</Typography>
-      <Typography variant="h4">As of {new Date().toLocaleString('default', { month: 'long',day: '2-digit',year: 'numeric' }) + ''}</Typography>
-       <PieSentiments />
-       <News />
+      
+        <div direction="row" className={classes.sectionTitle}>
+          <img src={MarketIcon} alt="logo" className={classes.sectionTitle} />
+          <Typography className={classes.sectionTitle}>Market Overview</Typography>
+        </div>
+
+        <div className={classes.sectionSubTitle}>
+          <Typography variant="h5" >Todays Sentiments</Typography>
+          <Typography variant="subtitle1">As of {new Date().toLocaleString('default', { month: 'long',day: '2-digit',year: 'numeric' }) + ''}</Typography>
+        </div>
+        <Container className={classes.itemContainer}>
+
+          <PieSentiments/>
+          <News/>
+  
+        </Container>
       </TabPanel>
       <TabPanel value={value} index={1}>
         <Extra />
@@ -114,10 +130,11 @@ const Market = () => {
         < Dashboard />
       </TabPanel>
 
-    </div>
+    </Container>
+    </Container>
     </>
 
-    
+   
   );
 };
 

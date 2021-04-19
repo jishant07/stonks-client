@@ -1,30 +1,29 @@
 import React from 'react';
-import { Button, Paper, Grid, Typography, Container } from '@material-ui/core';
+import { Button, Paper, Grid, Typography, Container, Avatar, Box } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import memories from '../../images/memories.jpg';
+import doodle from '../../images/doodle.png';
+import Stonks from '../../images/Stonks.svg';
 import useStyles from './styles';
+
 
 
 
 const Posts = () => {
   const classes = useStyles();
-  
  
 
   return (
-    
-    
-    <Container >
-    <h1>Stonks</h1>
-    <img src={memories} alt="icon" height="300" />
-    <Typography variant="h4">
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit elementum."
+    <Paper className={classes.root} elevation={0}>
+
+   
+     <img src={Stonks} alt="logo" className={classes.logo} />
+    <img src={doodle} alt="icon" height="320" />
+    <Typography variant="h3" className={classes.heading}>
+        We predict stock market sentiment
     </Typography>
-    <Typography variant="h6">{"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ullamcorper nulla aliquam ultrices metus, nibh. Orci vitae dui elementum sapien hac proin risusenim in quam."}
+    <Typography variant="h6" className={classes.subheading}>{"Stocks are hard to predict. Based on news from a company, Stonks predicts whether its stock will rise or not. It achieves this using Natural language processing and time series analysis techniques."}
     </Typography>
-    <Button component={Link} to="/about" variant="text" color="primary">About Us</Button>
-    <Button component={Link} to="/team" variant="text" color="primary">Team</Button>
-    <Button component={Link} to="/connect" variant="text" color="primary">Connect</Button>
+    <Button component={Link} to="/about" variant="text"  className={classes.heading}>About Us</Button>
     
 
     </Container>
