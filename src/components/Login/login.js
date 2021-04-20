@@ -82,13 +82,16 @@ class Login extends Component {
             width: '50%',
             padding: '16px 24px',
             fontFamily: 'Inter',
-            marginBottom: '32px'
+            marginBottom: '32px',
+            borderRadius: '8px',
+            border: 'none',
+            fontWeight: 'bold'
         }
 
         const linkStyle={
             fontFamily: 'Inter',
             fontWeight: '600',
-            color: '#3B82F6',
+            color: '#85B3FF',
         }
 
         return ( 
