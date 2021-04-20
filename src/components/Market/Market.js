@@ -1,17 +1,14 @@
 import React from 'react';
 import Dashboard from '../dashboard';
 import PropTypes from 'prop-types';
-import {Tabs, Tab, Typography, Box,Icon, Container, Grid} from '@material-ui/core';
+import {Tabs, Tab, Typography, Box, Container} from '@material-ui/core';
 import BusinessIcon from '@material-ui/icons/Business';
-import CropSquareRoundedIcon from '@material-ui/icons/CropSquareRounded';
 import PersonOutlineIcon  from '@material-ui/icons/PersonOutline';
 import PlaylistAddOutlinedIcon  from '@material-ui/icons/PlaylistAddOutlined';
 import TimelineIcon from '@material-ui/icons/Timeline';
 import useStyles from './styles';
 import Stonks from '../../images/Stonks.svg';
 import MarketIcon from '../../images/MarketIcon.svg';
-import PieSentiments from '../pie';
-import News from '../news'
 
 import PieSentiments from '../pie';
 import News from '../news';
@@ -121,13 +118,13 @@ const Market = () => {
         Item Five
       </TabPanel>
       <TabPanel value={value} index={5}>
-        Item Six
+      < Dashboard />
       </TabPanel>
       <TabPanel value={value} index={6}>
         Item Seven
       </TabPanel>
       <TabPanel value={value} index={7}>
-        < Dashboard />
+        Item 8
       </TabPanel>
 
     </Container>

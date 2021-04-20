@@ -116,10 +116,10 @@ class SignUp extends Component {
                 <input style={inputStyle} type="email" placeholder="myemail@example.com" name="email" required onChange={this.handleChange}></input>
                 <Typography variant="p" style={titleStyle}>Enter your password</Typography>
                 <input style={inputStyle} type="password" placeholder="It's a secret" name="password" required onChange={this.handleChange}></input>
-                <Button variant="contained" style={submitButton}>Submit</Button>
+                <button style={submitButton}>Submit</button>
             </form>
             <Typography variant="p" style={titleStyle}>Already have an account?</Typography>
-            <Link href="/home" style={linkStyle}> Login</Link>
+            <Link href="/" style={linkStyle}> Login</Link>
 
         </Paper>
         </Grid>

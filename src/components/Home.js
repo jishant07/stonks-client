@@ -1,6 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import { Container, Grow, Grid,Button} from '@material-ui/core';
+import { Container,Grid} from '@material-ui/core';
 import Login from "../components/Login/login";
 import Posts from '../components/Posts/posts';
 import {withRouter} from 'react-router-dom'

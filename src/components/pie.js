@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Tooltip } from 'recharts';
-import {Box, Container, Grid, Typography} from '@material-ui/core';
+import { PieChart, Pie,  Cell,  Tooltip } from 'recharts';
+import { Container, Grid, Typography} from '@material-ui/core';
 
 
 function PieSentiments() {
