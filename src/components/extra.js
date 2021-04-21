@@ -60,40 +60,41 @@ function Extra() {
                 <Typography variant="h5" >Todays Sentiments</Typography>
                 <Typography variant="subtitle1">As of {new Date().toLocaleString('default', { month: 'long',day: '2-digit',year: 'numeric' }) + ''}</Typography>
             </div>
-                <Table>
-                        <TableRow>
-                            <TableCell align="left">Company</TableCell>
-                            <TableCell align="right">Date</TableCell>
-                            <TableCell align="right">Open</TableCell>
-                            <TableCell align="right">High</TableCell>
-                            <TableCell align="right">Low</TableCell>
-                            <TableCell align="right">Close</TableCell>
-                            <TableCell align="right">Volume</TableCell>
-                            <TableCell align="right">Open Int</TableCell>
+                <TableContainer  className={classes.tableMain}>
+                    <Table>
+                            <TableRow>
+                                <TableCell className={classes.tableHead} align="left">Company</TableCell>
+                                <TableCell className={classes.tableHead} align="right">Date</TableCell>
+                                <TableCell className={classes.tableHead} align="right">Open</TableCell>
+                                <TableCell className={classes.tableHead} align="right">High</TableCell>
+                                <TableCell className={classes.tableHead} align="right">Low</TableCell>
+                                <TableCell className={classes.tableHead} align="right">Close</TableCell>
+                                <TableCell className={classes.tableHead} align="right">Volume</TableCell>
+                                <TableCell className={classes.tableHead} align="right">Open Int</TableCell>
 
-                        </TableRow>
-                            <TableRow onClick= {()=>history.push("/allcompanies/apple")}>
-                                <TableCell align="left">Apple</TableCell>
-                                {Object.keys(apple).map(key=><TableCell align="right">{apple[key]}</TableCell>)}
                             </TableRow>
-                            <TableRow onClick= {()=>history.push("/allcompanies/tesla")}>
-                                <TableCell align="left">Tesla</TableCell>
-                                {Object.keys(tesla).map(key=><TableCell align="right">{tesla[key]}</TableCell>)}
-                            </TableRow>
-                            <TableRow onClick= {()=>history.push("/allcompanies/nvidia")}>
-                                <TableCell align="left">Nvidia</TableCell>
-                                {Object.keys(nvidia).map(key=><TableCell align="right">{nvidia[key]}</TableCell>)}
-                            </TableRow>
-                            <TableRow onClick= {()=>history.push("/allcompanies/qualcomm")}>
-                                <TableCell align="left">Qualcomm</TableCell>
-                                {Object.keys(qcomm).map(key=><TableCell align="right">{qcomm[key]}</TableCell>)}
-                            </TableRow>
-                            <TableRow onClick= {()=>history.push("/allcompanies/facebook")}>
-                                <TableCell align="left"> Facebook</TableCell>
-                                {Object.keys(fb).map(key=><TableCell align="right">{fb[key]}</TableCell>)}
-                            </TableRow>
-                </Table>
-
+                                <TableRow onClick= {()=>history.push("/allcompanies/apple")}>
+                                    <TableCell className={classes.tableData} align="left">Apple</TableCell>
+                                    {Object.keys(apple).map(key=><TableCell className={classes.tableData} align="right">{apple[key]}</TableCell>)}
+                                </TableRow>
+                                <TableRow onClick= {()=>history.push("/allcompanies/tesla")}>
+                                    <TableCell className={classes.tableData} align="left">Tesla</TableCell>
+                                    {Object.keys(tesla).map(key=><TableCell className={classes.tableData} align="right">{tesla[key]}</TableCell>)}
+                                </TableRow>
+                                <TableRow onClick= {()=>history.push("/allcompanies/nvidia")}>
+                                    <TableCell className={classes.tableData} align="left">Nvidia</TableCell>
+                                    {Object.keys(nvidia).map(key=><TableCell className={classes.tableData} align="right">{nvidia[key]}</TableCell>)}
+                                </TableRow>
+                                <TableRow onClick= {()=>history.push("/allcompanies/qualcomm")}>
+                                    <TableCell className={classes.tableData} align="left">Qualcomm</TableCell>
+                                    {Object.keys(qcomm).map(key=><TableCell className={classes.tableData} align="right">{qcomm[key]}</TableCell>)}
+                                </TableRow>
+                                <TableRow onClick= {()=>history.push("/allcompanies/facebook")}>
+                                    <TableCell className={classes.tableData} align="left"> Facebook</TableCell>
+                                    {Object.keys(fb).map(key=><TableCell className={classes.tableData} align="right">{fb[key]}</TableCell>)}
+                                </TableRow>
+                    </Table>
+                </TableContainer>
          
         </Container>
         );
