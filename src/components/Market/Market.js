@@ -88,7 +88,8 @@ const Market = () => {
 
      
       <TabPanel value={value} index={0}>
-      
+
+      <Container style={{marginTop: '32px'}}>
         <div direction="row" className={classes.sectionTitle}>
           <img src={MarketIcon} alt="logo" className={classes.sectionTitle} />
           <Typography className={classes.sectionTitle}>Market Overview</Typography>
@@ -103,6 +104,7 @@ const Market = () => {
           <PieSentiments/>
           <News/>
   
+        </Container>
         </Container>
       </TabPanel>
       <TabPanel value={value} index={1}>

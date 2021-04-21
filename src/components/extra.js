@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
+import useStyles from './extraStyle';
+import {Tabs, Tab, Typography, Box, Container, Table, TableContainer, TableHead, TableRow, TableCell} from '@material-ui/core';
+import Companies from '../images/Companies.svg';
 
 
 function Extra() {
@@ -41,49 +44,58 @@ function Extra() {
             
           }));
     })
-    
+    const classes = useStyles();
        
         return (
-          
-        <div>
-            <div>
-                <h4>Today's Performance</h4>
-                <h6>As of {new Date().toLocaleString('default', { month: 'long',day: '2-digit',year: 'numeric' }) + ''}</h6>
-            </div>
-            <table>
-                <tr>
-                    <th>Company</th>
-                    <th>Date</th>
-                    <th>Open</th>
-                    <th>High</th>
-                    <th>Low</th>
-                    <th>Close</th>
-                    <th>Volume</th>
+            
 
-                </tr>
-                <tr onClick= {()=>history.push("/allcompanies/apple")}>
-                    <td>Apple</td>
-                    {Object.keys(apple).map(key=><td>{apple[key]}</td>)}
-                </tr>
-                <tr onClick= {()=>history.push("/allcompanies/tesla")}>
-                    <td>Tesla</td>
-                    {Object.keys(tesla).map(key=><td>{tesla[key]}</td>)}
-                </tr>
-                <tr onClick= {()=>history.push("/allcompanies/nvidia")}>
-                    <td>Nvidia</td>
-                    {Object.keys(nvidia).map(key=><td>{nvidia[key]}</td>)}
-                </tr>
-                <tr onClick= {()=>history.push("/allcompanies/qualcomm")}>
-                    <td>Qualcomm</td>
-                    {Object.keys(qcomm).map(key=><td>{qcomm[key]}</td>)}
-                </tr>
-                <tr onClick= {()=>history.push("/allcompanies/facebook")}>
-                    <td>Facebook</td>
-                    {Object.keys(fb).map(key=><td>{fb[key]}</td>)}
-                </tr>
-            </table>
+          
+        <Container style={{marginTop: '32px'}}>
+            <div direction="row" className={classes.sectionTitle}>
+                <img src={Companies} alt="logo" className={classes.sectionTitle} />
+                <Typography className={classes.sectionTitle}>All Companies</Typography>
+            </div>
+
+            <div className={classes.sectionSubTitle}>
+                <Typography variant="h5" >Todays Sentiments</Typography>
+                <Typography variant="subtitle1">As of {new Date().toLocaleString('default', { month: 'long',day: '2-digit',year: 'numeric' }) + ''}</Typography>
+            </div>
+                <Table>
+                        <TableRow>
+                            <TableCell align="left">Company</TableCell>
+                            <TableCell align="right">Date</TableCell>
+                            <TableCell align="right">Open</TableCell>
+                            <TableCell align="right">High</TableCell>
+                            <TableCell align="right">Low</TableCell>
+                            <TableCell align="right">Close</TableCell>
+                            <TableCell align="right">Volume</TableCell>
+                            <TableCell align="right">Open Int</TableCell>
+
+                        </TableRow>
+                            <TableRow onClick= {()=>history.push("/allcompanies/apple")}>
+                                <TableCell align="left">Apple</TableCell>
+                                {Object.keys(apple).map(key=><TableCell align="right">{apple[key]}</TableCell>)}
+                            </TableRow>
+                            <TableRow onClick= {()=>history.push("/allcompanies/tesla")}>
+                                <TableCell align="left">Tesla</TableCell>
+                                {Object.keys(tesla).map(key=><TableCell align="right">{tesla[key]}</TableCell>)}
+                            </TableRow>
+                            <TableRow onClick= {()=>history.push("/allcompanies/nvidia")}>
+                                <TableCell align="left">Nvidia</TableCell>
+                                {Object.keys(nvidia).map(key=><TableCell align="right">{nvidia[key]}</TableCell>)}
+                            </TableRow>
+                            <TableRow onClick= {()=>history.push("/allcompanies/qualcomm")}>
+                                <TableCell align="left">Qualcomm</TableCell>
+                                {Object.keys(qcomm).map(key=><TableCell align="right">{qcomm[key]}</TableCell>)}
+                            </TableRow>
+                            <TableRow onClick= {()=>history.push("/allcompanies/facebook")}>
+                                <TableCell align="left"> Facebook</TableCell>
+                                {Object.keys(fb).map(key=><TableCell align="right">{fb[key]}</TableCell>)}
+                            </TableRow>
+                </Table>
+
          
-        </div>
+        </Container>
         );
     }
 
