@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {useParams,useHistory} from "react-router-dom";
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import { LineChart, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Line } from 'recharts';
 import axios from "axios";
 
 function All() {
   let { companyName} = useParams();
+  const history = useHistory();
   const [pieData, setPieData] = useState(null)
   const [newsData, setNewsData] = useState(null)
   const [lineData, setLineData] = useState([])
@@ -47,7 +48,7 @@ function All() {
         }).then(async (res) => {
             const tableItems=res.data.data
             const items = res.data.data.map(item => ({
-                Date: item.Date,
+                Date: item.Date.slice(0,5),
                 Open: item.Open,
                 High: item.High,
                 Low: item.Low,
@@ -64,6 +65,7 @@ function All() {
 }, [])
 
   return (<div>
+  <button onClick={() => {history.push("/Market")}}>Back</button>
   <h3>{companyName}</h3>
   
   <div>
