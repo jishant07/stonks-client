@@ -22,7 +22,8 @@ export default makeStyles((theme) => ({
       display: 'flex',
       marginLeft: '1px',
       borderRadius: '8px',
-      height: '100vh'
+      height: '100vh',
+      
      
      
     },
@@ -61,6 +62,7 @@ export default makeStyles((theme) => ({
     itemContainer: {
       display: 'flex',
       padding: '0px',
+      
     }
   
 
