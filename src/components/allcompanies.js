@@ -3,6 +3,7 @@ import {useParams,useHistory} from "react-router-dom";
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import { LineChart, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Line } from 'recharts';
 import axios from "axios";
+import moment from 'moment';
 
 function All() {
   let { companyName} = useParams();
@@ -10,16 +11,10 @@ function All() {
   const [pieData, setPieData] = useState(null)
   const [newsData, setNewsData] = useState(null)
   const [lineData, setLineData] = useState([])
+  const [tableData, setTableData] = useState([])
   const urlPie = "https://finalyearbackend.herokuapp.com/get_sentiments/" + companyName;
-  const urlTable={
-    apple:"aapl",
-    tesla:"tsla",
-    facebook:"fb",
-    nvidia:"nvda",
-    qualcomm:"qcom",
-  }
   
-  
+
   useEffect(() => {
     const fnPie = async () => {
       let response = await fetch(urlPie)
@@ -43,20 +38,25 @@ function All() {
     fnNews()
 
     const fnTable = () =>{
-      axios.post("https://finalyearbackend.herokuapp.com/get_file",{
-            "file_location":"https://uploads-jottit.s3.ap-south-1.amazonaws.com/" + urlTable[companyName] +".csv"
-        }).then(async (res) => {
-            const tableItems=res.data.data
-            const items = res.data.data.map(item => ({
-                Date: item.Date.slice(0,5),
-                Open: item.Open,
-                High: item.High,
-                Low: item.Low,
-                Volume: item.Volume,
-                OpenInt: item.OpenInt,
-                Close: parseFloat(item.Close)
-            }));
-           setLineData(items) ; 
+      axios.get("https://finalyearbackend.herokuapp.com/get_finance_data/" + companyName)
+      .then(async (res) => {
+            const responseData=res.data.company_data[0].data;
+            
+            const formatChart=responseData.slice(0,25);
+            const formatTable=responseData.splice(0,50);
+            
+            const items = formatChart.map(item => (
+              {  
+                Date:new Date(item.date * 1000).toLocaleString('en-IN', {
+                  month: '2-digit',day: '2-digit',year: 'numeric'}).slice(0,12) ,
+                Close: parseFloat(item.close)
+            }
+          ));
+           setLineData(items) ;
+           
+           setTableData(formatTable) ;
+
+        
         })
     }
 
@@ -110,7 +110,7 @@ function All() {
           <LineChart
             width={500}
             height={200}
-            data={lineData}
+            data={ lineData }
             margin={{
               top: 10,
               right: 30,
@@ -134,18 +134,35 @@ function All() {
             <th>High</th>
             <th>Low</th>
             <th>Close</th>
-            <th>OpenInt</th>
             <th>Volume</th>
             </tr>
-        {lineData.map(row =>{
+        {tableData.map(row =>{
+         
+         const unixTimestamp=row.date;
+         var date = unixTimestamp * 1000;
+         const dateObject = new Date(date);
+         const formatDate=dateObject.toLocaleString('en-IN', {
+          month: '2-digit',day: '2-digit',year: 'numeric'}).slice(0,12);
+
+          const Open=parseFloat(row.open);
+          const open=Open.toFixed(2);
+
+          const High=parseFloat(row.high);
+          const high=High.toFixed(2);
+
+          const Low=parseFloat(row.low);
+          const low=Low.toFixed(2);
+
+          const Close=parseFloat(row.close);
+          const close=Close.toFixed(2);
+     
            return (<tr>
-            <td>{row.Date}</td>
-            <td>{row.Open}</td>
-            <td>{row.High}</td>
-            <td>{row.Low}</td>
-            <td>{row.Close}</td>
-            <td>{row.OpenInt}</td>
-            <td>{row.Volume}</td>
+            <td>{formatDate}</td>
+            <td>{open}</td>
+            <td>{high}</td>
+            <td>{low}</td>
+            <td>{close}</td>
+            <td>{row.volume}</td>
           </tr>)
         })}
       </table>

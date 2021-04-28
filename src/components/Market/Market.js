@@ -101,10 +101,7 @@ const Market = () => {
         </div>
         <Container className={classes.itemContainer}>
 
-          <PieSentiments/>
-          <News/>
-  
-        </Container>
+   </Container>
         </Container>
       </TabPanel>
       <TabPanel value={value} index={1}>

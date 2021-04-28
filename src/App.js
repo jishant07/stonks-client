@@ -12,6 +12,7 @@ import Extra from '../src/components/extra';
 import Posts from '../src/components/Posts/posts';
 import Market from '../src/components/Market/Market';
 import All from '../src/components/allcompanies';
+import Test from '../src/components/test';
 class App extends Component {
   state = {  }
   render() { 
@@ -25,6 +26,7 @@ class App extends Component {
         <Route exact path="/posts" component={Posts} />   
         <Route exact path="/Market" component={Market} />
         <Route exact path="/extra" component={Extra} />
+        <Route exact path="/test" component={Test} />
         <Route path="/allcompanies/:companyName" component={All} />
         <ProtectedRoute exact path="/dashboard" component={DashBoard} />
       </Switch>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { PieChart, Pie,  Cell,  Tooltip } from 'recharts';
 import { Container, Grid, Typography} from '@material-ui/core';
+const axios = require("axios");
 
 
 function PieSentiments() {
@@ -9,43 +10,44 @@ function PieSentiments() {
     const [negativeAverage, setNegativeAverage] = useState(null);
     const [neutralAverage, setNeutralAverage] = useState(null);
 
-    // useEffect(() => {
-    //     const urls = ["https://finalyearbackend.herokuapp.com/get_sentiments/apple", "https://finalyearbackend.herokuapp.com/get_sentiments/tesla", "https://finalyearbackend.herokuapp.com/get_sentiments/qualcomm", "https://finalyearbackend.herokuapp.com/get_sentiments/facebook", "https://finalyearbackend.herokuapp.com/get_sentiments/nvidia"]
+    useEffect(() => {
+        var apple = "https://finalyearbackend.herokuapp.com/get_sentiments/apple";
+var tesla = "https://finalyearbackend.herokuapp.com/get_sentiments/tesla";
+var qcom = "https://finalyearbackend.herokuapp.com/get_sentiments/qualcomm";
+var nvidia = "https://finalyearbackend.herokuapp.com/get_sentiments/nvidia";
+var facebook = "https://finalyearbackend.herokuapp.com/get_sentiments/facebook";
+var headlines =
+  "https://finalyearbackend.herokuapp.com/get_sentiments/headlines";
 
-    //     Promise.all(urls.map(url => fetch(url)))
-    //         .then(resp => Promise.all(resp.map(r => r.json())))
-    //         .then(result => {
-    //             // ...
-    //             console.log(result)
-    //             let positiveTotal = 0;
-    //             let negativeTotal = 0;
-    //             let neutralTotal = 0;
-    //             let numberOfItems = 0;
-    //             const data = result.map(item => {
-    //                 const arr = item.data;
-    //                 arr.forEach(a => {
-    //                     positiveTotal += a.pos_percentage;
-    //                     negativeTotal += a.neg_percentage;
-    //                     neutralTotal += a.neu_percentage;
-    //                     numberOfItems++;
-    //                 })
-    //             })
+axios
+  .all([
+    axios.get(apple),
+    axios.get(tesla),
+    axios.get(qcom),
+    axios.get(nvidia),
+    axios.get(facebook),
+    axios.get(headlines),
+  ])
+  .then(
+    axios.spread((...results) => {
+      var neu_avg = 0;
+      var neg_avg = 0;
+      var pos_avg = 0;
+      results.forEach((result) => {
+        neu_avg = neu_avg + parseInt(result.data.data[0].neu_percentage);
+        neg_avg = neg_avg + parseInt(result.data.data[0].neg_percentage);
+        pos_avg = pos_avg + parseInt(result.data.data[0].pos_percentage);
+      });
+      console.log(parseInt(neu_avg / results.length));
+      console.log(parseInt(neg_avg / results.length));
+      console.log(parseInt(pos_avg / results.length));
 
-    //             const positiveAverage = (positiveTotal / numberOfItems)* 100;
-    //             const negativeAverage = (negativeTotal / numberOfItems)* 100;
-    //             const neutralAverage = (neutralTotal / numberOfItems);
-    //             console.log(positiveAverage, negativeAverage, neutralAverage);
-    //             setPositiveAverage(positiveAverage);
-    //             setNegativeAverage(negativeAverage);
-    //             setNeutralAverage(neutralAverage)
-    //         });
-    // }, [])
-
-
-    const data01 = [
-        { name: 'Positive', value: 400 }, { name: 'Negative', value: 300 },
-        { name: 'Neutral', value: 200 },
-      ];
+      setPositiveAverage(parseInt(pos_avg / results.length));
+      setNegativeAverage(parseInt(neg_avg / results.length));
+      setNeutralAverage(parseInt(neu_avg / results.length))
+    })
+  );
+    }, [])
 
     const containerStyle={
         background: '#2A3752',
@@ -139,12 +141,12 @@ function PieSentiments() {
                     <Typography variant='h5'style={neutralNumber}>{JSON.stringify(neutralAverage|| 32 )}% </Typography>
                 </Grid>
             </Grid>
-            {<PieChart width={368} height={240}>
-            {/* {negativeAverage && positiveAverage && neutralAverage && <PieChart width={1000} height={400}> */}
+            
+            {negativeAverage && positiveAverage && neutralAverage && <PieChart width={1000} height={400}>
 
             <Pie
                 dataKey="value"
-                data={data01}
+                data={[{ name: "Positive", value: positiveAverage , fill:"#00ff00" }, { name: "Negative", value: negativeAverage }, {name: "Neutral", value: neutralAverage}]}
                 cx={180}
                 cy={100}
                 innerRadius={60}
