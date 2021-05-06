@@ -3,7 +3,7 @@ import {useParams,useHistory} from "react-router-dom";
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import { LineChart, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Line } from 'recharts';
 import axios from "axios";
-import {Typography, Box, Container, Divider, List, ListItem} from '@material-ui/core';
+import {Typography, Box, Container, Divider, List, ListItem, Table, TableContainer, TableRow, TableCell} from '@material-ui/core';
 import Stonks from '../images/Stonks.svg';
 import Back from '../images/Back.svg';
 import useStyles from './allcompstyle';
@@ -132,37 +132,36 @@ const classes = useStyles();
         </Container>
         
         <div>
-        <h3>Past Performance</h3>
-        <ResponsiveContainer width="100%" height={200}>
+        <Typography variant="h5"  className={classes.sectionSubTitle}>Past Performance</Typography>
+        <ResponsiveContainer width="98%" height={400} className={classes.chartContainer}>
                 <LineChart
-                  width={500}
-                  height={200}
+
                   data={ lineData }
                   margin={{
-                    top: 10,
-                    right: 30,
+                    top: 40,
+                    right: 80,
                     left: 0,
-                    bottom: 0,
+                    bottom: 20,
                   }}
                 >
                   <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="Date" />
-                  <YAxis dataKey="Close" />
+                  <XAxis dataKey="Date" stroke="#ffffff" />
+                  <YAxis dataKey="Close" stroke="#ffffff" />
                   <Tooltip />
-                  <Line connectNulls type="monotone" dataKey="Close" stroke="#8884d8" fill="#8884d8" />
+                  <Line connectNulls type="monotone" dataKey="Close" stroke="#546DA3" fill="#546DA3" strokeWidth="2px" />
                 </LineChart>
               </ResponsiveContainer>
         </div>
-        <div>
-            <table>
-            <tr>
-                  <th>Date</th>
-                  <th>Open</th>
-                  <th>High</th>
-                  <th>Low</th>
-                  <th>Close</th>
-                  <th>Volume</th>
-                  </tr>
+        <TableContainer className={classes.tableMain}>
+            <Table>
+              <TableRow>
+                  <TableCell className={classes.tableHead} align="left">Date</TableCell>
+                  <TableCell className={classes.tableHead} align="left">Open</TableCell>
+                  <TableCell className={classes.tableHead} align="left">High</TableCell>
+                  <TableCell className={classes.tableHead} align="left">Low</TableCell>
+                  <TableCell className={classes.tableHead} align="left">Close</TableCell>
+                  <TableCell className={classes.tableHead} align="left">Volume</TableCell>
+                </TableRow>
               {tableData.map(row =>{
               
               const unixTimestamp=row.date;
@@ -183,17 +182,17 @@ const classes = useStyles();
                 const Close=parseFloat(row.close);
                 const close=Close.toFixed(2);
           
-                return (<tr>
-                  <td>{formatDate}</td>
-                  <td>{open}</td>
-                  <td>{high}</td>
-                  <td>{low}</td>
-                  <td>{close}</td>
-                  <td>{row.volume}</td>
-                </tr>)
+                return (<TableRow>
+                  <TableCell className={classes.tableData}>{formatDate}</TableCell>
+                  <TableCell className={classes.tableData}>{open}</TableCell>
+                  <TableCell className={classes.tableData}>{high}</TableCell>
+                  <TableCell className={classes.tableData}>{low}</TableCell>
+                  <TableCell className={classes.tableData}>{close}</TableCell>
+                  <TableCell className={classes.tableData}>{row.volume}</TableCell>
+                </TableRow>)
               })}
-            </table>
-        </div>
+            </Table>
+        </TableContainer>
   </Container>
 </Container>);
 }

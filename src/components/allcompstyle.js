@@ -74,8 +74,42 @@ export default makeStyles((theme) => ({
   newsList: {
       fontSize: '14px',
       fontWeight: '400'
-  }
+  },
   
+  chartContainer: {
+    fontFamily : 'Inter',
+    background: '#2A3752',
+    padding: '16px',
+    borderRadius: '4px'
+
+  },
+
+  tableMain: {
+    color: '#fff',
+    background: '#2A3752',
+    padding: '16px',
+    borderRadius: '4px',
+    width: '98%',
+    marginTop: '32px',
+    marginBottom: '32px',
+    padding: '16px'
+    
+},
+
+tableHead: {
+  fontFamily: 'Inter',
+  fontWeight: '600',
+  fontSize: '16px',
+  opacity: '.5'
+},
+
+tableData: {
+  fontFamily: 'Inter',
+  fontWeight: '400',
+  fontSize: '16px',
+  cursor: 'pointer'
+}
+
 
 
 
