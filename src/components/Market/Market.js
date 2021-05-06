@@ -3,8 +3,10 @@ import Dashboard from '../dashboard';
 import PropTypes from 'prop-types';
 import {Tabs, Tab, Typography, Box, Container} from '@material-ui/core';
 import BusinessIcon from '@material-ui/icons/Business';
-import PersonOutlineIcon  from '@material-ui/icons/PersonOutline';
+import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 import PlaylistAddOutlinedIcon  from '@material-ui/icons/PlaylistAddOutlined';
+import GroupIcon from '@material-ui/icons/Group';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import TimelineIcon from '@material-ui/icons/Timeline';
 import useStyles from './styles';
 import Stonks from '../../images/Stonks.svg';
@@ -64,7 +66,7 @@ const Market = () => {
 
   return (
     
-    <>
+    
     <Container maxWidth='xl' className={classes.mainContainer}>
     <img src={Stonks} alt="logo" className={classes.logo} />
 
@@ -78,14 +80,13 @@ const Market = () => {
         onChange={handleChange}
         aria-label="Vertical tabs example"
         className={classes.tabs}
-        
-      >
-        <Tab icon={<TimelineIcon /> } label="Market Overview" {...a11yProps(0)} />
-        <Tab icon={<BusinessIcon />} label="All Companies" {...a11yProps(1)} />
-        <Tab icon={<PlaylistAddOutlinedIcon />} label="WatchList" {...a11yProps(2)} />
-        <Tab label="Team" {...a11yProps(3)} />
-        <Tab label="About" {...a11yProps(4)} className={classes.sepTabs} />
-        <Tab label="Logout" {...a11yProps(7)} />
+       >
+        <Tab className={classes.tabStyle} icon={<TimelineIcon /> } label="Market Overview" {...a11yProps(0)} />
+        <Tab className={classes.tabStyle} icon={<BusinessIcon />} label="All Companies" {...a11yProps(1)} />
+        <Tab className={classes.tabStyle} icon={<PlaylistAddOutlinedIcon />} label="WatchList" {...a11yProps(2)} />
+        <Tab className={classes.tabStyle} icon={<ImportContactsIcon  />} label="About" {...a11yProps(3)} />
+        <Tab className={classes.tabStyle} icon={<GroupIcon  />} label="Team" {...a11yProps(4)} />
+        <Tab className={classes.tabStyle} icon={<ExitToAppIcon  />} label="Log Out" {...a11yProps(7)} />
       </Tabs>
 
      
@@ -102,7 +103,7 @@ const Market = () => {
           <Typography variant="subtitle1">As of {new Date().toLocaleString('default', { month: 'long',day: '2-digit',year: 'numeric' }) + ''}</Typography>
         </div>
         <Container className={classes.itemContainer}>
-
+          <News/>
    </Container>
         </Container>
       </TabPanel>
@@ -113,10 +114,10 @@ const Market = () => {
         Item Three
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <Team />
+      <About />
       </TabPanel>
       <TabPanel value={value} index={4}>
-        <About />
+        <Team />
       </TabPanel>
       <TabPanel value={value} index={5}>
       < Dashboard />
@@ -130,7 +131,7 @@ const Market = () => {
 
     </Container>
     </Container>
-    </>
+  
 
    
   );
