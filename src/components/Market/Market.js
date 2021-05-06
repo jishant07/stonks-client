@@ -62,7 +62,7 @@ const Market = () => {
 
   return (
     
-    <>
+    
     <Container maxWidth='xl' className={classes.mainContainer}>
     <img src={Stonks} alt="logo" className={classes.logo} />
 
@@ -100,7 +100,7 @@ const Market = () => {
           <Typography variant="subtitle1">As of {new Date().toLocaleString('default', { month: 'long',day: '2-digit',year: 'numeric' }) + ''}</Typography>
         </div>
         <Container className={classes.itemContainer}>
-
+          <News/>
    </Container>
         </Container>
       </TabPanel>
@@ -128,7 +128,7 @@ const Market = () => {
 
     </Container>
     </Container>
-    </>
+  
 
    
   );
