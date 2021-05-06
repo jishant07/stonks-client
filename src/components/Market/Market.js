@@ -13,6 +13,8 @@ import MarketIcon from '../../images/MarketIcon.svg';
 import PieSentiments from '../pie';
 import News from '../news';
 import Extra from '../extra';
+import About from '../aboutus';
+import Team from '../team';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -81,7 +83,7 @@ const Market = () => {
         <Tab icon={<TimelineIcon /> } label="Market Overview" {...a11yProps(0)} />
         <Tab icon={<BusinessIcon />} label="All Companies" {...a11yProps(1)} />
         <Tab icon={<PlaylistAddOutlinedIcon />} label="WatchList" {...a11yProps(2)} />
-        <Tab icon={<PersonOutlineIcon  />} label="Accounts" {...a11yProps(3)} />
+        <Tab label="Team" {...a11yProps(3)} />
         <Tab label="About" {...a11yProps(4)} className={classes.sepTabs} />
         <Tab label="Logout" {...a11yProps(7)} />
       </Tabs>
@@ -111,10 +113,10 @@ const Market = () => {
         Item Three
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item Four
+        <Team />
       </TabPanel>
       <TabPanel value={value} index={4}>
-        Item Five
+        <About />
       </TabPanel>
       <TabPanel value={value} index={5}>
       < Dashboard />
