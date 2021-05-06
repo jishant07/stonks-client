@@ -28,15 +28,18 @@ export default makeStyles((theme) => ({
      
     },
     tabs: {
-      borderRight: `1px solid ${theme.palette.divider}`,
+      borderRight: `2px solid ${theme.palette.divider}`,
       marginTop:'60px',
       marginLeft:'0px',
-      display: 'inline-block',
       color: '#fff',
-      fontFamily: 'Inter'
-      
-
+      fontFamily: 'Inter',
     },
+
+  tabStyle: {
+    display: 'flex',
+    marginBottom:'16px',
+    marginRight: '32px'
+  },
 
     sepTabs: {
       marginTop: '80px'

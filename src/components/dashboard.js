@@ -9,7 +9,7 @@ class DashBoard extends Component {
         return ( <button onClick={() => {
             auth.logout()
             this.props.history.push("/")
-        }}>Logout</button> );
+        }}>Exit</button> );
     }
 }
  
