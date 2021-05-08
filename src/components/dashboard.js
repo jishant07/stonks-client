@@ -16,22 +16,22 @@ class DashBoard extends Component {
             width: '120px',
             marginTop: 'auto',
             fontFamily: 'Inter',
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            marginTop: '16px'
         }
 
         const textStyle={
-            color: '#ffffff',
+            color: '#fff',
+            fontSize: '32px',
             fontFamily: 'Inter',
-            fontSize: '24px',
-            marginBottom: '16px',
-            marginTop: '16px'
+            fontWeight: '600',
         }
         
         return ( 
         
         
 
-        <Container>
+        <Container style={{padding: '16px'}}>
             <Typography style={textStyle}>Log Out?</Typography>
         <Button style={buttonStyle}  onClick={() => {
             auth.logout()
