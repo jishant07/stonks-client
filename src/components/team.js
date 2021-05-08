@@ -63,19 +63,19 @@ const Team = () => {
                             <CardActionArea>
                                 <CardContent>
                                     <Typography gutterBottom style={nameStyle}>
-                                    Akshay Agrawal
+                                    Jishant Acharya
                                     </Typography>
                                     <Typography style={subStyle}>
-                                    UI/UX Engineer
+                                    ML & Backend Developer
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button size="small" color="primary" style={buttonStyle}>
+                                <Button size="small" color="primary" style={buttonStyle} href="https://www.linkedin.com/in/jishant-acharya-32352418b">
                                     LinkedIn
                                 </Button>
-                                <Button size="small" color="primary" style={buttonStyle}>
-                                    Website
+                                <Button size="small" color="primary" style={buttonStyle} href="https://twitter.com/jishant1?s=08">
+                                    Twitter
                                 </Button>
                             </CardActions>
                         </Card>
@@ -91,11 +91,11 @@ const Team = () => {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button size="small" color="primary" style={buttonStyle}>
+                                <Button size="small" color="primary" style={buttonStyle} href="https://www.linkedin.com/in/axay">
                                     LinkedIn
                                 </Button>
-                                <Button size="small" color="primary" style={buttonStyle}>
-                                    Website
+                                <Button size="small" color="primary" style={buttonStyle} href="https://twitter.com/axayagrawal">
+                                    Twitter
                                 </Button>
                             </CardActions>
                         </Card>
@@ -107,40 +107,36 @@ const Team = () => {
                             <CardActionArea>
                                 <CardContent>
                                     <Typography gutterBottom style={nameStyle}>
-                                    Akshay Agrawal
+                                    Shreya Kamble
                                     </Typography>
                                     <Typography style={subStyle}>
-                                    UI/UX Engineer
+                                    Frontend & Integration
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button size="small" color="primary" style={buttonStyle}>
+                                <Button size="small" color="primary" style={buttonStyle} href="https://www.linkedin.com/in/shreya-kamble-227ab6192">
                                     LinkedIn
                                 </Button>
-                                <Button size="small" color="primary" style={buttonStyle}>
-                                    Website
-                                </Button>
+
                             </CardActions>
                         </Card>
                 <Card style={rootStyle}>
                             <CardActionArea>
                                 <CardContent>
                                     <Typography gutterBottom style={nameStyle}>
-                                    Akshay Agrawal
+                                    Amol Ajgaonkar
                                     </Typography>
                                     <Typography style={subStyle}>
-                                    UI/UX Engineer
+                                    QA & Documentation
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button size="small" color="primary" style={buttonStyle} href="https://twitter.com/axayagrawal">
+                                <Button size="small" color="primary" style={buttonStyle} href=" https://www.linkedin.com/in/amol-ajgaonkar99">
                                     LinkedIn
                                 </Button>
-                                <Button size="small" color="primary" style={buttonStyle}>
-                                    Website
-                                </Button>
+
                             </CardActions>
                         </Card>
                 </Box>
