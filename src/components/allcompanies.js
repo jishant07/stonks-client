@@ -3,9 +3,19 @@ import {useParams,useHistory} from "react-router-dom";
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import { LineChart, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Line } from 'recharts';
 import axios from "axios";
-import {Typography, Grid, Container, List, Table, TableContainer, TableRow, TableCell} from '@material-ui/core';
+import {Typography, Grid, Container, List, Table, TableContainer, TableRow, TableCell, useIsFocusVisible} from '@material-ui/core';
 import Stonks from '../images/Stonks.svg';
 import Back from '../images/Back.svg';
+import AppleMovement from '../images/AppleMovement.png';
+import AppleTrend from '../images/AppleTrend.png';
+import FacebookMovement from '../images/FacebookMovement.png';
+import FacebookTrend from '../images/FacebookTrend.png';
+import NvidiaMovement from '../images/NvidiaMovement.png';
+import NvidiaTrend from '../images/NvidiaTrend.png';
+import QualcommMovement from '../images/QualcommMovement.png';
+import QualcommTrend from '../images/QualcommTrend.png';
+import TeslaMovement from '../images/TeslaMovement.png';
+import TeslaTrend from '../images/TeslaTrend.png';
 import useStyles from './allcompstyle';
 
 function All() {
@@ -15,6 +25,8 @@ function All() {
   const [newsData, setNewsData] = useState(null)
   const [lineData, setLineData] = useState([])
   const [tableData, setTableData] = useState([])
+  const [movement,setMovement]= useState()
+  const [trend,setTrend]=useState()
   const urlPie = "https://finalyearbackend.herokuapp.com/get_sentiments/" + companyName;
   
 
@@ -64,6 +76,35 @@ function All() {
     }
 
     fnTable()
+
+    const fnImage = (companyName) => {
+
+   if(companyName==="apple"){
+       setMovement(AppleMovement);
+       setTrend(AppleTrend)
+      }
+   else if (companyName==="facebook"){
+     setMovement(FacebookMovement);
+      setTrend(FacebookTrend)
+    }
+    else if (companyName==="nvidia"){
+      setMovement(NvidiaMovement);
+      setTrend(NvidiaTrend)
+     }
+     else if (companyName==="qualcomm"){
+      setMovement(QualcommMovement);
+      setTrend(QualcommTrend)
+     }
+     else{
+       setMovement(TeslaMovement);
+       setTrend(TeslaTrend)
+     }
+    }
+
+    fnImage()
+
+    
+    
    
 }, [])
 
@@ -93,15 +134,15 @@ const classes = useStyles();
         <Grid container spacing={5} direction='row' className={classes.PieGridStyle}>
           <Grid item>
                       <Typography variant='h6' className={classes.PieTitleStyle}>Positive</Typography>
-                      <Typography variant='h5' className={classes.PiePositiveNumber}>{( parseFloat(pieData?.pos_percentage|| 0)|| '')}% </Typography>
+                      <Typography variant='h5' className={classes.PiePositiveNumber}>{( Math.round(pieData?.pos_percentage|| 0)|| '')}% </Typography>
           </Grid>
           <Grid item>
                       <Typography variant='h6' className={classes.PieTitleStyle}>Negative</Typography>
-                      <Typography variant='h5' className={classes.PieNegativeNumber}>{(parseFloat(pieData?.neg_percentage || 0) ||  '')}% </Typography>
+                      <Typography variant='h5' className={classes.PieNegativeNumber}>{(Math.round(pieData?.neg_percentage || 0) ||  '')}% </Typography>
           </Grid>
           <Grid item>
                       <Typography variant='h6' className={classes.PieTitleStyle}>Neutral</Typography>
-                      <Typography variant='h5' className={classes.PieNeutralNumber}>{(parseFloat(pieData?.neu_percentage || 0)|| '')}% </Typography>
+                      <Typography variant='h5' className={classes.PieNeutralNumber}>{(Math.round(pieData?.neu_percentage || 0)|| '')}% </Typography>
           </Grid>
 
 
@@ -167,6 +208,11 @@ const classes = useStyles();
                 </LineChart>
               </ResponsiveContainer>
         </div>
+        <div>
+            <img src={movement} alt="Movement" />
+            <img src={trend} alt="Trend" />
+        </div>
+
         <TableContainer className={classes.tableMain}>
             <Table>
               <TableRow>
