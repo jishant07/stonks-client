@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 import useStyles from './extraStyle';
-import {Tabs, Tab, Typography, Box, Container, Table, TableContainer, TableHead, TableRow, TableCell} from '@material-ui/core';
+import { Typography, Container, Table, TableContainer, TableRow, TableCell} from '@material-ui/core';
 import Companies from '../images/Companies.svg';
 
 function Extra() {

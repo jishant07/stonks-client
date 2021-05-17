@@ -63,10 +63,6 @@ axios
 
     }
 
-    const boxStyle={
-        
-    }
-
     const gridStyle={
         margin: '8px 0px',
         width: '368px',
@@ -83,13 +79,7 @@ axios
         marginBottom: '4px'
     }
 
-    const numberStyle={
-        fontSize: '20px',
-        lineHeight: '24px',
-        fontFamily: 'Inter',
-        fontWeight: 'bold',
-    }
-
+   
     const positiveNumber={
         color:'#4ADE80',
         fontSize: '20px',

@@ -1,6 +1,4 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { InfoOutlined } from '@material-ui/icons';
-
 
 export default makeStyles((theme) => ({
     root: {

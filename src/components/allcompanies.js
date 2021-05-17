@@ -3,12 +3,10 @@ import {useParams,useHistory} from "react-router-dom";
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import { LineChart, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Line } from 'recharts';
 import axios from "axios";
-import {Typography, Grid, Container, Divider, List, ListItem, Table, TableContainer, TableRow, TableCell} from '@material-ui/core';
+import {Typography, Grid, Container, List, Table, TableContainer, TableRow, TableCell} from '@material-ui/core';
 import Stonks from '../images/Stonks.svg';
 import Back from '../images/Back.svg';
 import useStyles from './allcompstyle';
-import createTypography from "@material-ui/core/styles/createTypography";
-
 
 function All() {
   let { companyName} = useParams();

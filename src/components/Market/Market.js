@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import {Tabs, Tab, Typography, Box, Container} from '@material-ui/core';
 import BusinessIcon from '@material-ui/icons/Business';
 import ImportContactsIcon from '@material-ui/icons/ImportContacts';
-import PlaylistAddOutlinedIcon  from '@material-ui/icons/PlaylistAddOutlined';
 import GroupIcon from '@material-ui/icons/Group';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import TimelineIcon from '@material-ui/icons/Timeline';
@@ -110,21 +109,14 @@ const Market = () => {
       <TabPanel value={value} index={1}>
         <Extra />
       </TabPanel>
-  
-      <TabPanel value={value} index={3}>
+      <TabPanel value={value} index={2}>
       <About />
       </TabPanel>
-      <TabPanel value={value} index={4}>
+      <TabPanel value={value} index={3}>
         <Team />
       </TabPanel>
-      <TabPanel value={value} index={5}>
+      <TabPanel value={value} index={4}>
       < Dashboard />
-      </TabPanel>
-      <TabPanel value={value} index={6}>
-        Item Seven
-      </TabPanel>
-      <TabPanel value={value} index={7}>
-        Item 8
       </TabPanel>
 
     </Container>

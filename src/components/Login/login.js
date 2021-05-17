@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DataProvider from '../../services/data';
 import axios from 'axios';
 import {withRouter} from 'react-router-dom';
-import { Grid, Paper, Button, Link, Typography } from '@material-ui/core';
+import { Grid, Paper, Link, Typography } from '@material-ui/core';
 
 
 class Login extends Component {

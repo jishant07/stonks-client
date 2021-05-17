@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import DataProvider from '../services/data';
-import { Grid, Paper, Button, Link, Typography } from '@material-ui/core';
+import { Grid, Paper, Link, Typography } from '@material-ui/core';
 import Stonks from '../images/Stonks.svg';
 
 
