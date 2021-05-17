@@ -153,7 +153,7 @@ axios
                 outerRadius={100}
                 fill="#82ca9d"
             >
-            <Cell stroke={"##4ADE80"} fill={"#4ADE80"}  strokeWidth={1}/>
+            <Cell stroke={"#4ADE80"} fill={"#4ADE80"}  strokeWidth={1}/>
             <Cell stroke={"#DE4A4A"} fill={"#DE4A4A"}  strokeWidth={1}/>
             <Cell stroke={"#BCD2EE"} fill={"#BCD2EE"}  strokeWidth={1}/>
             </Pie>

@@ -83,7 +83,6 @@ const Market = () => {
        >
         <Tab className={classes.tabStyle} icon={<TimelineIcon /> } label="Market Overview" {...a11yProps(0)} />
         <Tab className={classes.tabStyle} icon={<BusinessIcon />} label="All Companies" {...a11yProps(1)} />
-        <Tab className={classes.tabStyle} icon={<PlaylistAddOutlinedIcon />} label="WatchList" {...a11yProps(2)} />
         <Tab className={classes.tabStyle} icon={<ImportContactsIcon  />} label="About" {...a11yProps(3)} />
         <Tab className={classes.tabStyle} icon={<GroupIcon  />} label="Team" {...a11yProps(4)} />
         <Tab className={classes.tabStyle} icon={<ExitToAppIcon  />} label="Log Out" {...a11yProps(7)} />
@@ -103,6 +102,7 @@ const Market = () => {
           <Typography variant="subtitle1">As of {new Date().toLocaleString('default', { month: 'long',day: '2-digit',year: 'numeric' }) + ''}</Typography>
         </div>
         <Container className={classes.itemContainer}>
+          <PieSentiments/>
           <News/>
    </Container>
         </Container>
@@ -110,9 +110,7 @@ const Market = () => {
       <TabPanel value={value} index={1}>
         <Extra />
       </TabPanel>
-      <TabPanel value={value} index={2}>
-        Item Three
-      </TabPanel>
+  
       <TabPanel value={value} index={3}>
       <About />
       </TabPanel>

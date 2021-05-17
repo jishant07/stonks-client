@@ -3,7 +3,7 @@ import {useParams,useHistory} from "react-router-dom";
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import { LineChart, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Line } from 'recharts';
 import axios from "axios";
-import {Typography, Box, Container, Divider, List, ListItem, Table, TableContainer, TableRow, TableCell} from '@material-ui/core';
+import {Typography, Grid, Container, Divider, List, ListItem, Table, TableContainer, TableRow, TableCell} from '@material-ui/core';
 import Stonks from '../images/Stonks.svg';
 import Back from '../images/Back.svg';
 import useStyles from './allcompstyle';
@@ -21,14 +21,14 @@ function All() {
   
 
   useEffect(() => {
-    // const fnPie = async () => {
-    //   let response = await fetch(urlPie)
-    //   response = await response.json()
-    //   const data = response.data[0]
-    //   setPieData(data);
-    // }
+    const fnPie = async () => {
+      let response = await fetch(urlPie)
+      response = await response.json()
+      const data = response.data[0]
+      setPieData(data);
+    }
 
-    // fnPie()
+    fnPie()
 
     const fnNews = () => {
       axios.post("https://finalyearbackend.herokuapp.com/read_firebase",{
@@ -91,12 +91,25 @@ const classes = useStyles();
 
       <Container className={classes.itemContainer}>
 
+      <Container className={classes.PieContainerStyle}>
+        <Grid container spacing={5} direction='row' className={classes.PieGridStyle}>
+          <Grid item>
+                      <Typography variant='h6' className={classes.PieTitleStyle}>Positive</Typography>
+                      <Typography variant='h5' className={classes.PiePositiveNumber}>{( parseFloat(pieData?.pos_percentage|| 0)|| '')}% </Typography>
+          </Grid>
+          <Grid item>
+                      <Typography variant='h6' className={classes.PieTitleStyle}>Negative</Typography>
+                      <Typography variant='h5' className={classes.PieNegativeNumber}>{(parseFloat(pieData?.neg_percentage || 0) ||  '')}% </Typography>
+          </Grid>
+          <Grid item>
+                      <Typography variant='h6' className={classes.PieTitleStyle}>Neutral</Typography>
+                      <Typography variant='h5' className={classes.PieNeutralNumber}>{(parseFloat(pieData?.neu_percentage || 0)|| '')}% </Typography>
+          </Grid>
 
-        {/* <div>
-          <h6>Positive: {( parseFloat(pieData?.pos_percentage|| 0)|| '')}%</h6>
-          <h6>Negative: {(parseFloat(pieData?.neg_percentage || 0) ||  '')}%</h6>
-          <h6>Neutral: {(parseFloat(pieData?.neu_percentage || 0)|| '')}%</h6>
-        </div>
+
+        </Grid>
+
+
         <div >
           { pieData && <PieChart width={1000} height={400}>  
             <Pie
@@ -104,20 +117,24 @@ const classes = useStyles();
                 data={[{ name: "Positive", value: parseFloat(pieData.pos_percentage) }, 
                 { name: "Negative", value: parseFloat(pieData.neg_percentage) },
                 {name: "Neutral", value: parseFloat(pieData.neu_percentage)}]}
-                cx={500}
-                cy={200}
-                innerRadius={40}
-                outerRadius={80}
+                cx={180}
+                cy={100}
+                innerRadius={60}
+                outerRadius={100}
                 fill="#82ca9d"
             >
-                <Cell stroke={"#00ff00"} fill={"#00ff00"}  strokeWidth={1}/>
-                <Cell stroke={"#ff0000"} fill={"#ff0000"}  strokeWidth={1}/>
-                <Cell stroke={"#0000ff"} fill={"#0000ff"}  strokeWidth={1}/>
+                <Cell stroke={"#4ADE80"} fill={"#4ADE80"}  strokeWidth={1}/>
+                <Cell stroke={"#DE4A4A"} fill={"#DE4A4A"}  strokeWidth={1}/>
+                <Cell stroke={"#BCD2EE"} fill={"#BCD2EE"}  strokeWidth={1}/>
             </Pie>
-            <Tooltip />
+            <Tooltip  className={classes.PieTooltipStyle}/>
           </PieChart>
           }  
-        </div> */}
+        </div>
+
+        </Container>
+
+
         
         <Container className={classes.newsContainerStyle}>
                <Typography variant="h6" className={classes.newsHeadingStyle}>Sources</Typography>
