@@ -20,14 +20,14 @@ class App extends Component {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/signup" component={Signup}/>
-        <Route exact path="/pie" component={PieSentiments} />
-        <Route exact path="/news" component={News} />
-        <Route exact path="/posts" component={Posts} />   
-        <Route exact path="/Market" component={Market} />
-        <Route exact path="/extra" component={Extra} />
+        <ProtectedRoute exact path="/signup" component={Signup}/>
+        <ProtectedRoute exact path="/pie" component={PieSentiments} />
+        <ProtectedRoute exact path="/news" component={News} />
+        <ProtectedRoute exact path="/posts" component={Posts} />   
+        <ProtectedRoute exact path="/Market" component={Market} />
+        <ProtectedRoute exact path="/extra" component={Extra} />
         <Route exact path="/test" component={Test} />
-        <Route path="/allcompanies/:companyName" component={All} />
+        <ProtectedRoute path="/allcompanies/:companyName" component={All} />
         <ProtectedRoute exact path="/dashboard" component={DashBoard} />
       </Switch>
     </BrowserRouter>
