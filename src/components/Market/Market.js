@@ -37,89 +37,84 @@ function TabPanel(props) {
     );
   }
   
-  TabPanel.propTypes = {
-    children: PropTypes.node,
-    
-    index: PropTypes.any.isRequired,
-    value: PropTypes.any.isRequired,
-  };
-  
-  function a11yProps(index) {
-    return {
-      id: `vertical-tab-${index}`,
-      'aria-controls': `vertical-tabpanel-${index}`,
+    TabPanel.propTypes = {
+      children: PropTypes.node,
+      
+      index: PropTypes.any.isRequired,
+      value: PropTypes.any.isRequired,
     };
-  }
   
-
-const Market = () => {
+    function a11yProps(index) {
+      return {
+        id: `vertical-tab-${index}`,
+        'aria-controls': `vertical-tabpanel-${index}`,
+      };
+    }
+    
+    const Market = () => {
 
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
-
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
-  
-
-  return (
-    
-    
+    return (
     <Container maxWidth='xl' className={classes.mainContainer}>
-    <img src={Stonks} alt="logo" className={classes.logo} />
+      <img src={Stonks} alt="logo" className={classes.logo} />
 
 
-    <Container maxWidth='xl' className={classes.root}>
-      <Tabs
-        orientation="vertical"
-        variant="scrollable"
-        scrollButtons="off"
-        value={value}
-        onChange={handleChange}
-        aria-label="Vertical tabs example"
-        className={classes.tabs}
-       >
-        <Tab className={classes.tabStyle} icon={<TimelineIcon /> } label="Market Overview" {...a11yProps(0)} />
-        <Tab className={classes.tabStyle} icon={<BusinessIcon />} label="All Companies" {...a11yProps(1)} />
-        <Tab className={classes.tabStyle} icon={<ImportContactsIcon  />} label="About" {...a11yProps(3)} />
-        <Tab className={classes.tabStyle} icon={<GroupIcon  />} label="Team" {...a11yProps(4)} />
-        <Tab className={classes.tabStyle} icon={<ExitToAppIcon  />} label="Log Out" {...a11yProps(7)} />
-      </Tabs>
+      <Container maxWidth='xl' className={classes.root}>
+        <Tabs
+          orientation="vertical"
+          variant="scrollable"
+          scrollButtons="off"
+          value={value}
+          onChange={handleChange}
+          aria-label="Vertical tabs example"
+          className={classes.tabs}
+        >
+          <Tab className={classes.tabStyle} icon={<TimelineIcon /> } label="Market Overview" {...a11yProps(0)} />
+          <Tab className={classes.tabStyle} icon={<BusinessIcon />} label="All Companies" {...a11yProps(1)} />
+          <Tab className={classes.tabStyle} icon={<ImportContactsIcon  />} label="About" {...a11yProps(3)} />
+          <Tab className={classes.tabStyle} icon={<GroupIcon  />} label="Team" {...a11yProps(4)} />
+          <Tab className={classes.tabStyle} icon={<ExitToAppIcon  />} label="Log Out" {...a11yProps(7)} />
+        </Tabs>
 
      
-      <TabPanel value={value} index={0}>
+        <TabPanel value={value} index={0}>
 
-      <Container style={{marginTop: '32px'}}>
-        <div direction="row" className={classes.sectionTitle}>
-          <img src={MarketIcon} alt="logo" className={classes.sectionTitle} />
-          <Typography className={classes.sectionTitle}>Market Overview</Typography>
-        </div>
+          <Container style={{marginTop: '32px'}}>
+            <div direction="row" className={classes.sectionTitle}>
+              <img src={MarketIcon} alt="logo" className={classes.sectionTitle} />
+              <Typography className={classes.sectionTitle}>Market Overview</Typography>
+            </div>
 
-        <div className={classes.sectionSubTitle}>
-          <Typography variant="h5" >Todays Sentiments</Typography>
-          <Typography variant="subtitle1">As of {new Date().toLocaleString('default', { month: 'long',day: '2-digit',year: 'numeric' }) + ''}</Typography>
-        </div>
-        <Container className={classes.itemContainer}>
-          <PieSentiments/>
-          <News/>
-   </Container>
-        </Container>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <Extra />
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-      <About />
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        <Team />
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-      < Dashboard />
-      </TabPanel>
+            <div className={classes.sectionSubTitle}>
+              <Typography variant="h5" >Todays Sentiments</Typography>
+              <Typography variant="subtitle1">As of {new Date().toLocaleString('default', { month: 'long',day: '2-digit',year: 'numeric' }) + ''}</Typography>
+            </div>
 
-    </Container>
+            <Container className={classes.itemContainer}>
+              <PieSentiments/>
+              <News/>
+            </Container>
+          </Container>
+        </TabPanel>
+
+        <TabPanel value={value} index={1}>
+          <Extra />
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+        <About />
+        </TabPanel>
+        <TabPanel value={value} index={3}>
+          <Team />
+        </TabPanel>
+        <TabPanel value={value} index={4}>
+        < Dashboard />
+        </TabPanel>
+      </Container>
     </Container>
   
 

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Loader from 'react-loader'
 import { Container, Typography, List, Divider } from '@material-ui/core';
 
 class News extends Component {
-    state = { data:[] ,loaded:false }
+
     async componentDidMount() {
         axios.post("https://finalyearbackend.herokuapp.com/read_firebase",{
             "company":"headlines"
@@ -42,9 +41,6 @@ class News extends Component {
             marginTop: '8px'
         }
 
-
-
-        
         return (
            <Container style={containerStyle}>
                <Typography variant="h6" style={headingStyle} >Sources</Typography>

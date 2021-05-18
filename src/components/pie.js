@@ -3,7 +3,6 @@ import { PieChart, Pie,  Cell,  Tooltip } from 'recharts';
 import { Container, Grid, Typography} from '@material-ui/core';
 const axios = require("axios");
 
-
 function PieSentiments() {
 
     const [positiveAverage, setPositiveAverage] = useState(null);
@@ -12,23 +11,22 @@ function PieSentiments() {
 
     useEffect(() => {
         var apple = "https://finalyearbackend.herokuapp.com/get_sentiments/apple";
-var tesla = "https://finalyearbackend.herokuapp.com/get_sentiments/tesla";
-var qcom = "https://finalyearbackend.herokuapp.com/get_sentiments/qualcomm";
-var nvidia = "https://finalyearbackend.herokuapp.com/get_sentiments/nvidia";
-var facebook = "https://finalyearbackend.herokuapp.com/get_sentiments/facebook";
-var headlines =
-  "https://finalyearbackend.herokuapp.com/get_sentiments/headlines";
+        var tesla = "https://finalyearbackend.herokuapp.com/get_sentiments/tesla";
+        var qcom = "https://finalyearbackend.herokuapp.com/get_sentiments/qualcomm";
+        var nvidia = "https://finalyearbackend.herokuapp.com/get_sentiments/nvidia";
+        var facebook = "https://finalyearbackend.herokuapp.com/get_sentiments/facebook";
+        var headlines ="https://finalyearbackend.herokuapp.com/get_sentiments/headlines";
 
-axios
-  .all([
-    axios.get(apple),
-    axios.get(tesla),
-    axios.get(qcom),
-    axios.get(nvidia),
-    axios.get(facebook),
-    axios.get(headlines),
-  ])
-  .then(
+    axios
+    .all([
+        axios.get(apple),
+        axios.get(tesla),
+        axios.get(qcom),
+        axios.get(nvidia),
+        axios.get(facebook),
+        axios.get(headlines),
+    ])
+    .then(
     axios.spread((...results) => {
       var neu_avg = 0;
       var neg_avg = 0;
@@ -55,20 +53,14 @@ axios
         color: '#ffffff',
         height: '360px',
         width: '368px',
-        marginRight: '32px',
-      
+        marginRight: '32px',   
         padding: '0px'
-
-
-
     }
 
     const gridStyle={
         margin: '8px 0px',
         width: '368px',
         padding: '0px'
-
-
     }
 
     const titleStyle={
@@ -107,12 +99,8 @@ axios
     const tooltipStyle={
         background: '#1E293B',
         fomtFamily: 'Inter',
-        fontWeight: '600',
-      
+        fontWeight: '600',    
     }
-
- 
-
 
     return (
 

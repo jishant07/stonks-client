@@ -1,10 +1,7 @@
 import React from "react";
 import {Typography, Card, CardActionArea, CardContent, Button, CardActions, Container, Box} from '@material-ui/core';
 
-
-
 const Team = () => {
-
 
     const sectionTitle={
         color: '#fff',
@@ -48,9 +45,6 @@ const Team = () => {
         background: '#1F293D',
         padding: '8px 16px 8px 16px'
     }
-
-
-
 
 
     return (
@@ -104,51 +98,41 @@ const Team = () => {
             <Box direction="row" style={{display: 'flex'}}>
 
                 <Card style={rootStyle}>
-                            <CardActionArea>
-                                <CardContent>
-                                    <Typography gutterBottom style={nameStyle}>
-                                    Shreya Kamble
-                                    </Typography>
-                                    <Typography style={subStyle}>
-                                    Frontend & Integration
-                                    </Typography>
-                                </CardContent>
-                            </CardActionArea>
-                            <CardActions>
-                                <Button size="small" color="primary" style={buttonStyle} href="https://www.linkedin.com/in/shreya-kamble-227ab6192">
-                                    LinkedIn
-                                </Button>
-
-                            </CardActions>
-                        </Card>
+                    <CardActionArea>
+                        <CardContent>
+                            <Typography gutterBottom style={nameStyle}>
+                            Shreya Kamble
+                            </Typography>
+                            <Typography style={subStyle}>
+                            Frontend & Integration
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                        <Button size="small" color="primary" style={buttonStyle} href="https://www.linkedin.com/in/shreya-kamble-227ab6192">
+                            LinkedIn
+                        </Button>
+                    </CardActions>
+                </Card>
                 <Card style={rootStyle}>
-                            <CardActionArea>
-                                <CardContent>
-                                    <Typography gutterBottom style={nameStyle}>
-                                    Amol Ajgaonkar
-                                    </Typography>
-                                    <Typography style={subStyle}>
-                                    QA & Documentation
-                                    </Typography>
-                                </CardContent>
-                            </CardActionArea>
-                            <CardActions>
-                                <Button size="small" color="primary" style={buttonStyle} href=" https://www.linkedin.com/in/amol-ajgaonkar99">
-                                    LinkedIn
-                                </Button>
-
+                    <CardActionArea>
+                        <CardContent>
+                            <Typography gutterBottom style={nameStyle}>
+                            Amol Ajgaonkar
+                            </Typography>
+                            <Typography style={subStyle}>
+                            QA & Documentation
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                        <Button size="small" color="primary" style={buttonStyle} href=" https://www.linkedin.com/in/amol-ajgaonkar99">
+                            LinkedIn
+                        </Button>
                             </CardActions>
-                        </Card>
-                </Box>
-
-                        
-      
-
-
-
+                 </Card>
+             </Box>
       </Container>
-
-
 
     );
 }
