@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Container, Typography, List, Divider } from '@material-ui/core';
 
 class News extends Component {
-
+    state = { data:[] }
     async componentDidMount() {
         axios.post("https://finalyearbackend.herokuapp.com/read_firebase",{
             "company":"headlines"
