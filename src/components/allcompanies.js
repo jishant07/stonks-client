@@ -203,6 +203,7 @@ const classes = useStyles();
       </div>
         
       <div>
+      <Typography variant="h5"  className={classes.sectionSubTitle}>Time Series Progression Chart</Typography>
           <img src={movement} alt="Movement" />
           <img src={trend} alt="Trend" />
       </div>

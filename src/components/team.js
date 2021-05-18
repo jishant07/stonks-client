@@ -60,7 +60,7 @@ const Team = () => {
                                     Jishant Acharya
                                     </Typography>
                                     <Typography style={subStyle}>
-                                    ML & Backend Developer
+                                    ML & Backend Development
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
@@ -80,7 +80,7 @@ const Team = () => {
                                     Akshay Agrawal
                                     </Typography>
                                     <Typography style={subStyle}>
-                                    UI/UX Engineer
+                                    UI/UX Engineering
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
@@ -121,7 +121,7 @@ const Team = () => {
                             Amol Ajgaonkar
                             </Typography>
                             <Typography style={subStyle}>
-                            QA & Documentation
+                            Data Analytics & Backend
                             </Typography>
                         </CardContent>
                     </CardActionArea>
