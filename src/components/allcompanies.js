@@ -82,7 +82,8 @@ function All() {
                       ? error
                       : news.urlToImage
                   }
-                  width="100px"
+                  height="50px"
+                  width="50px"
                 ></img>
                 <h3 style={{ marginLeft: "8px" }}>{news.title}</h3>
               </span>
